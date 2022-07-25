@@ -1,0 +1,59 @@
+@import './variables.scss';
+
+.page-offer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &__info {   
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        @media (min-width: 768px){
+            width: 422px;
+            height: 60px;
+        }
+    }
+
+    &__link {
+        @include fontMedium;
+        letter-spacing: -0.2px;
+        color: #1B1C21;
+        .button-offer{
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                width: 2px;
+                height: 8px;
+                right: -16px;
+                top: 34px;
+                background-color: $iconColor;
+                border-bottom-left-radius: 2px;
+                border-bottom-right-radius: 2px;
+                transform: rotate(45deg);
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 2px;
+                height: 8px;
+                right: -16px;
+                top: 29px;
+                background-color: $iconColor;
+                border-bottom-left-radius: 2px;
+                border-bottom-right-radius: 2px;
+                transform: rotate(140deg);
+            }
+            @media (min-width: 768px){
+                &::after {      
+                    top: 10px;
+                }
+    
+                &::before {
+                    top: 5px;
+                } 
+            }
+        }
+    }
+}

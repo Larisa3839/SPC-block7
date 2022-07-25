@@ -1,0 +1,30 @@
+@import './variables.scss';
+
+.footer {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+    @include fontMediumFooter;
+    padding: 16px 0;
+    opacity: 0.72;
+  
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: baseline;
+      &__p{
+        flex: 1;
+      }
+      &__p:first-child{
+        text-align: left;
+      }
+      &__p:last-child{
+        text-align: right;
+      }
+    }
+    @media (min-width: 768px){
+
+    }
+  }

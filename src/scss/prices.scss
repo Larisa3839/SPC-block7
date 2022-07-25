@@ -1,0 +1,203 @@
+@import './variables.scss';
+
+.prices {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (min-width: 768px) {
+        gap: 24px;
+
+        &__title {
+            height: 56px;
+        }
+    }
+
+    &__title {
+        background: linear-gradient(90deg, #F8F8F8 1.39%, #FFFFFF 100%);
+        height: 80px;
+
+        @media (min-width: 768px) {
+            height: 56px;
+        }
+    }
+
+    &__header {
+        display: none;
+        font-size: 14px;
+        line-height: 16px;
+        color: $textLightColor;
+        opacity: 0.72;
+        padding: 0 16px;
+
+        @media (min-width: 768px) {
+            display: flex;
+        }
+
+        &-item--pos {
+            &--1 {
+                @media (min-width: 768px) {
+                    flex: 3.5;
+                }
+
+                @media (min-width: 1440px) {
+                    flex: 3;
+                }
+            }
+
+            &--2 {
+                flex: 1;
+
+                @media (min-width: 1440px) {
+                    flex: 1.5;
+                }
+            }
+
+            &--3 {
+                flex: 2.5;
+
+                @media (min-width: 1440px) {
+                    flex: 2;
+                }
+            }
+        }
+    }
+
+    &__swiper {
+        overflow: hidden;
+
+        .swiper-wrapper {
+            @media (min-width: 768px) {
+                padding: 0 16px;
+                box-sizing: border-box;
+                background: #FFFFFF;
+                border-radius: 6px;
+                flex-direction: column;
+                align-items: center;
+                width: 720px;
+                height: 324px;
+            }
+
+            @media (min-width: 1440px) {
+                padding: 0 32px;
+                width: 1056px;
+            }
+
+            .swiper-slide {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 260px;
+                height: 200px;
+                padding: 16px;
+                background: #FFFFFF;
+                border: 1px solid #EAEAEA;
+                border-radius: 6px;
+
+                @media (min-width: 768px) {
+                    align-items: center;
+                    border: none;
+                    border-bottom: 1px solid #EAEAEA;
+                    flex-direction: row;
+                    width: 100%;
+                    height: 64px;
+                    border-radius: 0;
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+
+                @media (min-width: 1440px) {
+                    padding: 24px;
+                }
+
+                .prices__title-item {
+                    @media (min-width: 768px) {
+                        flex: 3.5;
+                    }
+
+                    @media (min-width: 1440px) {
+                        flex: 3;
+                    }
+                }
+
+                .prices__price-item {
+                    @media (min-width: 768px) {
+                        flex: 1;
+                    }
+
+                    @media (min-width: 1440px) {
+                        flex: 1.5;
+                    }
+                }
+
+                .prices__time-order-item {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    @media (min-width: 768px) {
+                        flex: 2.5;
+                    }
+
+                    @media (min-width: 1440px) {
+                        flex: 2;
+                    }
+                }
+
+                .prices__h3 {
+                    @include fontMediumFooter;
+
+                    @media (min-width: 768px) {
+                        display: none;
+                    }
+                }
+
+                .prices__p {
+                    @include fontRegular;
+                    letter-spacing: 0.2px;
+                }
+
+                .prices__time-order-item div,
+                .prices__price-item,
+                .prices__title-item {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                }
+
+                .prices__time-order-item {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .prices__link {
+                    display: flex;
+                    padding: 0 12px;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 119px;
+                    height: 32px;
+                    background-color: $iconColor;
+                    border-radius: 16px;
+
+                    .prices__button {
+                       @include pinkButton;                       
+                    }
+                    &:hover {
+                        opacity: 0.5;
+                        transition: opacity 0.2s;
+                    }
+                }
+
+            }
+
+        }
+    }
+
+    button {
+        display: none;
+    }
+}

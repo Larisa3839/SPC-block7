@@ -1,0 +1,204 @@
+$bgColor: #F8F8F8;
+$text: #1B1C21;
+$iconColor: #FF3E79;
+$textLightColor: #7E7E82;
+$section-border: 1px solid #D9FFF5;
+$side-color: #41F6D7;
+$navBorderColor: #B8FFEC;
+
+* {
+  box-sizing: border-box;
+}
+
+@mixin fontRegular {
+  font-family: 'TT Lakes';
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 18px;
+}
+
+@mixin fontBold {
+  font-family: 'TT Lakes';
+  font-weight: 600;
+  font-size: 28px;
+}
+
+@mixin fontMedium {
+  font-family: 'TT Lakes';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin fontMediumFooter {
+  font-family: 'TT Lakes';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #7E7E82;
+}
+
+@mixin fontBoldPriceButton {
+  font-family: 'TT Lakes';
+  font-size: 12px;
+  line-height: 24px;
+  text-align: right;
+  letter-spacing: -0.15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+@mixin font-h2 {
+  display: flex;
+  align-items: center;
+  font-family: 'TT Lakes';
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  text-transform: uppercase;
+  color: $textLightColor;
+}
+
+@mixin bgIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #FF3E79;
+
+  &:hover {
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+}
+
+@mixin borderLeft($magin) {
+  content: "";
+  margin-right: $magin;
+  border-left: 4px solid #41F6D7;
+  border-top-right-radius: 45%;
+  border-bottom-right-radius: 45%;
+}
+
+@mixin pinkButton {
+  position: relative;
+  @include fontBoldPriceButton;
+
+  &::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 8px;
+      right: -25px;
+      top: 10px;
+      background-color: #fff;
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+      transform: rotate(45deg);
+  }
+
+  &::before {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 8px;
+      right: -25px;
+      top: 5px;
+      background-color: #fff;
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+      transform: rotate(140deg);
+  }
+}
+
+@mixin pseudoElement($deg, $right, $top) {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 8px;
+  right: $right;
+  top: $top;
+  background-color: #FF3E79;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  transform: rotate($deg);
+}
+
+@mixin button {
+  align-self: flex-start;
+  background-color: transparent;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  padding-left: 24px;
+  @include fontMedium;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 5px;
+    width: 8px;
+    height: 11px;
+    background-image: url('../img/button.svg');
+  }
+
+  &--open::before {
+    transform: rotate(180deg);
+  }
+}
+
+@mixin imgButton {
+  position: relative;
+  justify-self: end;
+  height: 40px;
+  width: 40px;
+  border: 2px solid #FF3E79;
+  border-radius: 50%;
+
+  &::before {
+    @include pseudoElement(135deg, 16px, 11px);
+  }
+
+  &::after {
+    @include pseudoElement(45deg, 16px, 16px);
+  }
+}
+
+@mixin sliderContainer($iColumns, $wColumns, $gap) {
+  padding-bottom: 24px;
+
+  .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat($iColumns, $wColumns);
+    grid-template-rows: repeat(2, 72px);
+    grid-auto-rows: 72px;
+    column-gap: $gap;
+    row-gap: 16px;
+    height: 160px;
+    overflow-y: hidden;
+    transition: height 0.3s;
+
+    .swiper-slide {
+      width: auto;
+      padding: 0 16px;
+    }
+    
+  }
+  .hidden {
+    height: 340px;
+  }
+
+  
+
+  .swiper-pagination {
+    display: none;
+  }
+
+}
