@@ -1,7 +1,7 @@
 import '../scss/style.scss';
 import '../../node_modules/swiper/modules/pagination/pagination.scss';
 import Swiper, { Pagination } from 'swiper';
-Swiper.use([Pagination]);
+
 const swiperList = document.querySelectorAll('.swiper-wrapper');
 const buttonsMore = document.querySelectorAll('.swiper-button');
 const buttonText = document.querySelector('.button');
@@ -29,7 +29,6 @@ buttonsMore.forEach((button, index) =>{
 const iconBurger = document.querySelectorAll('.burger');
 if (iconBurger) {
   const sidebarPopup = document.querySelector('.sidebar');
-  console.log(sidebarPopup)
   iconBurger.forEach(burger => burger.addEventListener('click', ()=>{
     document.body.classList.toggle('_lock');
     burger.classList.toggle('b_active');
@@ -48,10 +47,8 @@ if (buttonPopupCall) {
 }
 
 const buttonPopupFeedback = document.querySelectorAll('.button-popup-feedback');
-console.log(buttonPopupCall)
 if (buttonPopupCall) {
   const feedbackPopup = document.querySelector('.popup-feedback');
-  console.log(feedbackPopup)
   buttonPopupFeedback.forEach(burger => burger.addEventListener('click', ()=>{
     document.body.classList.toggle('_lock');
     burger.classList.toggle('b_active');
@@ -59,55 +56,19 @@ if (buttonPopupCall) {
   }))
 }
 
-
-let init = false;
-const swiperCard = () => {
-  if (window.innerWidth <= 767) {
-    if (!init) {
-      init = true;
-      var swiper = new Swiper(".swiper-container", {
-        slidesPerView: 1,
-        spaceBetween: 16,
-        width: 240,
-        centeredSlides: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-      });
-    }
-  } else if (init) {
-    swiper.destroy();
-    //init = false;
+window.onload =  () => {  // ожидаем загрузку окна браузера
+  if (window.matchMedia('(max-width: 767px)').matches) { // // свайпер у нас будет работать, если разрешение эерана не превышает 767px
+    const swiper = new Swiper('.swiper-container', { 
+      modules: [Pagination], // инициализируем новый Swiper
+      direction: 'horizontal', // устанавливаем напрвление Swiper
+      loop: true,  // делаем Swiper зацикленным (Swiper самостоятельно добавит слайды в начало и конец .swiper-wrapper для создания иллюзии "бесконечности" слайдов)
+      spaceBetween: 16, // отступ между слайдами в px
+      slidesPerView: 'auto', // позволит устанавливать произвольную ширину слайдов, в противном случае - растянет на ширину контейнера .swiper-wrapper
+      pagination: { // подключаем пагинацию
+        el: '.swiper-pagination', // контейнер для пагинации
+        clickable: true // добавляем параметр, если хотим сделать bullets кликабельными
+      },
+      init: true
+    })
   }
 }
-
-swiperCard();
-
-window.addEventListener("resize", () => {
-  swiperCard();
-});
-
-
-
-  
-
-
-/*console.log('Works!');
-window.onload =  () => {  // ожидаем загрузку окна браузера
-    if (window.matchMedia('(max-width: 767px)').matches) {
-      console.log("1235r3tgqv ") // // свайпер у нас будет работать, если разрешение эерана не превышает 767px
-      const swiper = new Swiper('.swiper-container', {
-        modules: [Pagination],  // инициализируем новый Swiper
-        direction: 'horizontal', // устанавливаем напрвление Swiper
-        loop: true,  // делаем Swiper зацикленным (Swiper самостоятельно добавит слайды в начало и конец .swiper-wrapper для создания иллюзии "бесконечности" слайдов)
-        spaceBetween: 20, // отступ между слайдами в px
-        slidesPerView: 'auto', // позволит устанавливать произвольную ширину слайдов, в противном случае - растянет на ширину контейнера .swiper-wrapper
-        pagination: { // подключаем пагинацию
-          el: '.swiper-pagination', // контейнер для пагинации
-          clickable: true // добавляем параметр, если хотим сделать bullets кликабельными
-        },
-        init: true
-      })
-    }
-  }*/
