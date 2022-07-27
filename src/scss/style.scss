@@ -13,6 +13,9 @@
 @import './popup-call.scss';
 
 * {
+  box-sizing: border-box;
+}
+* {
   padding: 0;
   margin: 0;
   border: 0;
@@ -68,7 +71,7 @@ body {
 .logo-link {
   display: flex;
 }
-.icon {
+.icon-link {
   @include bgIcon;
 }
 .button{

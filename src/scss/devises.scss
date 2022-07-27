@@ -74,6 +74,9 @@
 
         .hidden {
             height: 344px;
+            @media (min-width: 1440px) {
+                height: 160px;
+            }
         }
     }
 

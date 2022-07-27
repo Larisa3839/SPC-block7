@@ -146,7 +146,7 @@
                     }
                 }
 
-                .prices__h3 {
+                .prices__subtitle {
                     @include fontMediumFooter;
 
                     @media (min-width: 768px) {
@@ -154,7 +154,7 @@
                     }
                 }
 
-                .prices__p {
+                .prices__text {
                     @include fontRegular;
                     letter-spacing: 0.2px;
                 }
@@ -173,19 +173,9 @@
                     justify-content: space-between;
                 }
 
-                .prices__link {
-                    display: flex;
-                    padding: 0 12px;
-                    align-items: center;
-                    justify-content: space-between;
-                    width: 119px;
-                    height: 32px;
-                    background-color: $iconColor;
-                    border-radius: 16px;
+                .prices__button {            
+                    @include buttonOreder;
 
-                    .prices__button {
-                       @include pinkButton;                       
-                    }
                     &:hover {
                         opacity: 0.5;
                         transition: opacity 0.2s;

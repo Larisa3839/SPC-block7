@@ -99,10 +99,6 @@
 }
 
 @media (min-width: 1440px) {
-    .sidebar {
-        display: flex;
-    }
-
     .page-description {
         gap: 8px;
 
@@ -117,6 +113,10 @@
                     align-items: center;
                     @include fontMedium;
                     color: $text;
+                    &:hover {
+                        opacity: 0.5;
+                        transition: opacity 0.2s;
+                      }
                 }
             }
         }

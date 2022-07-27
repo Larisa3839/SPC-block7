@@ -45,13 +45,15 @@
             }
         }
 
-        @media (min-width: 768px) {
-            @include sliderContainer(3, 224px, 24px);
+        .swiper-container{
+            @media (min-width: 768px) {
+                @include sliderContainer(3, 224px, 24px, 340px);
+            }
+            @media (min-width: 1440px) {
+                @include sliderContainer(4, 240px, 32px, 250px);
+            }
         }
-
-        @media (min-width: 1440px) {
-            @include sliderContainer(4, 240px, 32px);
-        }
+        
     }
 
     button {

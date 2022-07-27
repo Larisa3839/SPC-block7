@@ -28,6 +28,7 @@ buttonsMore.forEach((button, index) =>{
 
 const iconBurger = document.querySelectorAll('.burger');
 if (iconBurger) {
+  console.log(iconBurger)
   const sidebarPopup = document.querySelector('.sidebar');
   iconBurger.forEach(burger => burger.addEventListener('click', ()=>{
     document.body.classList.toggle('_lock');
@@ -35,6 +36,13 @@ if (iconBurger) {
     sidebarPopup.classList.toggle('_active');
   }))
 }
+const sidebarBody = document.querySelector('.sidebar');
+sidebarBody.addEventListener('click', (e)=>{
+    if(e.target.className === "sidebar _active") {
+      sidebarBody.classList.remove('_active');
+    }
+})
+
 
 const buttonPopupCall = document.querySelectorAll('.button-popup-call');
 if (buttonPopupCall) {
@@ -45,28 +53,41 @@ if (buttonPopupCall) {
     callPopup.classList.toggle('popup-call--visible');
   }))
 }
+const callPopupBody = document.querySelector('.popup-call');
+callPopupBody.addEventListener('click', (e)=>{
+    if(e.target.className === "popup-call popup-call--visible") {
+      callPopupBody.classList.remove('popup-call--visible');
+    }
+})
+
 
 const buttonPopupFeedback = document.querySelectorAll('.button-popup-feedback');
-if (buttonPopupCall) {
-  const feedbackPopup = document.querySelector('.popup-feedback');
+const feedbackPopup = document.querySelector('.popup-feedback');
+if (buttonPopupFeedback) {
   buttonPopupFeedback.forEach(burger => burger.addEventListener('click', ()=>{
     document.body.classList.toggle('_lock');
     burger.classList.toggle('b_active');
     feedbackPopup.classList.toggle('popup-feedback--visible');
   }))
 }
+const feedbackPopupBody = document.querySelector('.popup-feedback');
+feedbackPopupBody.addEventListener('click', (e)=>{
+    if(e.target.className === "popup-feedback popup-feedback--visible") {
+      feedbackPopup.classList.remove('popup-feedback--visible');
+    }
+})
 
-window.onload =  () => {  // ожидаем загрузку окна браузера
-  if (window.matchMedia('(max-width: 767px)').matches) { // // свайпер у нас будет работать, если разрешение эерана не превышает 767px
+window.onload =  () => {
+  if (window.matchMedia('(max-width: 767px)').matches) { 
     const swiper = new Swiper('.swiper-container', { 
-      modules: [Pagination], // инициализируем новый Swiper
-      direction: 'horizontal', // устанавливаем напрвление Swiper
-      loop: true,  // делаем Swiper зацикленным (Swiper самостоятельно добавит слайды в начало и конец .swiper-wrapper для создания иллюзии "бесконечности" слайдов)
-      spaceBetween: 16, // отступ между слайдами в px
-      slidesPerView: 'auto', // позволит устанавливать произвольную ширину слайдов, в противном случае - растянет на ширину контейнера .swiper-wrapper
-      pagination: { // подключаем пагинацию
-        el: '.swiper-pagination', // контейнер для пагинации
-        clickable: true // добавляем параметр, если хотим сделать bullets кликабельными
+      modules: [Pagination],
+      direction: 'horizontal',
+      loop: true,
+      spaceBetween: 16,
+      slidesPerView: 'auto',
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
       },
       init: true
     })

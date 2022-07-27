@@ -6,10 +6,6 @@ $section-border: 1px solid #D9FFF5;
 $side-color: #41F6D7;
 $navBorderColor: #B8FFEC;
 
-* {
-  box-sizing: border-box;
-}
-
 @mixin fontRegular {
   font-family: 'TT Lakes';
   font-size: 14px;
@@ -85,33 +81,30 @@ $navBorderColor: #B8FFEC;
 }
 
 @mixin pinkButton {
-  position: relative;
-  @include fontBoldPriceButton;
-
   &::after {
-      content: "";
-      position: absolute;
-      width: 2px;
-      height: 8px;
-      right: -25px;
-      top: 10px;
-      background-color: #fff;
-      border-bottom-left-radius: 2px;
-      border-bottom-right-radius: 2px;
-      transform: rotate(45deg);
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 8px;
+    right: -25px;
+    top: 10px;
+    background-color: #fff;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    transform: rotate(45deg);
   }
 
   &::before {
-      content: "";
-      position: absolute;
-      width: 2px;
-      height: 8px;
-      right: -25px;
-      top: 5px;
-      background-color: #fff;
-      border-bottom-left-radius: 2px;
-      border-bottom-right-radius: 2px;
-      transform: rotate(140deg);
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 8px;
+    right: -25px;
+    top: 5px;
+    background-color: #fff;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    transform: rotate(140deg);
   }
 }
 
@@ -154,6 +147,25 @@ $navBorderColor: #B8FFEC;
   }
 }
 
+@mixin buttonOreder {
+  cursor: pointer;
+  display: block;
+  position: relative;
+  @include fontBoldPriceButton;
+  padding: 4px 40px 4px 12px;
+  background-color: $iconColor;
+  border-radius: 16px;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 11px;
+    right: 12px;
+    width: 7px;
+    height: 9px;
+    background-image: url('../img/arrow.svg');
+  }
+}
+
 @mixin imgButton {
   position: relative;
   justify-self: end;
@@ -171,7 +183,7 @@ $navBorderColor: #B8FFEC;
   }
 }
 
-@mixin sliderContainer($iColumns, $wColumns, $gap) {
+@mixin sliderContainer($iColumns, $wColumns, $gap, $height) {
   padding-bottom: 24px;
 
   .swiper-wrapper {
@@ -189,13 +201,14 @@ $navBorderColor: #B8FFEC;
       width: auto;
       padding: 0 16px;
     }
-    
-  }
-  .hidden {
-    height: 340px;
+
   }
 
-  
+  .hidden {
+    height: $height;
+
+
+  }
 
   .swiper-pagination {
     display: none;
