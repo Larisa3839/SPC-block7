@@ -82,7 +82,10 @@
                 background: #FFFFFF;
                 border: 1px solid #EAEAEA;
                 border-radius: 6px;
+                @media (max-width: 767px){
+                    padding: 16px;
 
+                }
                 @media (min-width: 768px) {
                     align-items: center;
                     border: none;
