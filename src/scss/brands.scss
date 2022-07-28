@@ -1,28 +1,15 @@
 @import './variables.scss';
 
-.brands {
+.main__section {
     display: flex;
     flex-direction: column;
     gap: 16px;
 
     @media (min-width: 768px) {
         gap: 24px;
-
-        &__title {
-            height: 56px;
-        }
     }
 
-    &__title {
-        background: linear-gradient(90deg, #F8F8F8 1.39%, #FFFFFF 100%);
-        height: 80px;
-
-        @media (min-width: 768px) {
-            height: 56px;
-        }
-    }
-
-    &__swiper {
+    .brands__swiper {
         overflow: hidden;
 
         .swiper-slide {

@@ -5,7 +5,7 @@
     flex-direction: column;
     gap: 24px;
     
-    .main-info {
+    .main__section {
         display: flex;
         flex-direction: column;
         gap: 16px;
@@ -23,6 +23,9 @@
             .hidden {
                 height: 216px;
             }
+            .button {
+                display: block;
+              }
         }
 
         .info-img {
@@ -71,61 +74,12 @@
         gap: 32px;
     }
 
-    .nav-menu {
-        display: flex;
-        align-items: center;
-        white-space: nowrap;
-        overflow: scroll;
-
-        &__item {
-            @include fontMedium;
-            color: #7E7E82;
-            padding: 8px 16px;
-        }
-
-        &__item:hover {
-            padding: 6px 14px;
-            background-color: #FFFFFF;
-            border: 2px solid #B8FFEC;
-            border-radius: 6px;
-        }
-    }
-
-    .nav-menu::-webkit-scrollbar {
-        width: 0;
-        height: 0;
-    }
-
 }
 
 @media (min-width: 1440px) {
     .page-description {
         gap: 8px;
-
-        &__title {
-            .title-menu {
-                display: flex;
-                gap: 32px;
-
-                &__link {
-                    display: flex;
-                    gap: 8px;
-                    align-items: center;
-                    @include fontMedium;
-                    color: $text;
-                    &:hover {
-                        opacity: 0.5;
-                        transition: opacity 0.2s;
-                      }
-                }
-            }
-        }
-
-        .nav-menu {
-            flex-wrap: wrap;
-        }
-
-        .main-info {
+        .main__section {
             .description {
                 &__text {
                     height: 160px;

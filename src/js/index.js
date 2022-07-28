@@ -40,6 +40,7 @@ const sidebarBody = document.querySelector('.sidebar');
 sidebarBody.addEventListener('click', (e)=>{
     if(e.target.className === "sidebar _active") {
       sidebarBody.classList.remove('_active');
+      document.body.classList.remove('_lock');
     }
 })
 
@@ -57,6 +58,7 @@ const callPopupBody = document.querySelector('.popup-call');
 callPopupBody.addEventListener('click', (e)=>{
     if(e.target.className === "popup-call popup-call--visible") {
       callPopupBody.classList.remove('popup-call--visible');
+      document.body.classList.remove('_lock');
     }
 })
 
@@ -74,6 +76,7 @@ const feedbackPopupBody = document.querySelector('.popup-feedback');
 feedbackPopupBody.addEventListener('click', (e)=>{
     if(e.target.className === "popup-feedback popup-feedback--visible") {
       feedbackPopup.classList.remove('popup-feedback--visible');
+      document.body.classList.remove('_lock');
     }
 })
 
