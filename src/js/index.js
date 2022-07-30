@@ -28,7 +28,6 @@ buttonsMore.forEach((button, index) =>{
 
 const iconBurger = document.querySelectorAll('.burger');
 if (iconBurger) {
-  console.log(iconBurger)
   const sidebarPopup = document.querySelector('.sidebar');
   iconBurger.forEach(burger => burger.addEventListener('click', ()=>{
     document.body.classList.toggle('_lock');
